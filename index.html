@@ -15,8 +15,36 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="bg-blur bg-blur-one"></div>
-  <div class="bg-blur bg-blur-two"></div>
+
+  <div id="loader">
+  <div class="loader-scene">
+    <div class="loader-cube" id="loaderCube">
+      <div class="loader-face front">R</div>
+      <div class="loader-face back">U</div>
+      <div class="loader-face right">G</div>
+      <div class="loader-face left">V</div>
+      <div class="loader-face top">E</div>
+      <div class="loader-face bottom">D</div>
+    </div>
+
+    <div class="loader-word" id="loaderWord">
+      <span style="--i:0">R</span>
+      <span class="dot" style="--i:1">.</span>
+      <span style="--i:2">U</span>
+      <span class="dot" style="--i:3">.</span>
+      <span style="--i:4">G</span>
+      <span class="dot" style="--i:5">.</span>
+      <span style="--i:6">V</span>
+      <span class="dot" style="--i:7">.</span>
+      <span style="--i:8">E</span>
+      <span class="dot" style="--i:9">.</span>
+      <span style="--i:10">D</span>
+    </div>
+    <div class="loader-progress">
+  <div class="loader-progress-fill" id="loaderProgressFill"></div>
+</div>
+  </div>
+</div>
 
   <header class="site-header">
     <div class="container nav">

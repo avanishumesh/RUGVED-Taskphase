@@ -17,8 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const x = (e.clientX / window.innerWidth - 0.5) * 2;
     const y = (e.clientY / window.innerHeight - 0.5) * 2;
 
-    targetY = x * 70;
-    targetX = -y * 70;
+    targetY = x * 120;
+    targetX = -y * 120;
   });
 
   window.addEventListener("scroll", () => {
@@ -26,8 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const delta = now - lastScrollY;
     lastScrollY = now;
 
-    scrollBoostX += delta * 0.15;
-    scrollBoostY += delta * 0.10;
+    scrollBoostX += delta * 0.35;
+    scrollBoostY += delta * 0.35;
     currentZ += delta * 0.03;
 
     scrollBoostX = Math.max(-25, Math.min(25, scrollBoostX));
@@ -56,4 +56,59 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   animate();
+});
+
+window.addEventListener("load", () => {
+  const loader = document.getElementById("loader");
+  const loaderCube = document.getElementById("loaderCube");
+  const loaderWord = document.getElementById("loaderWord");
+
+  setTimeout(() => {
+    loaderCube.classList.add("break-apart");
+    loaderWord.classList.add("drop");
+  }, 2550);
+
+  setTimeout(() => {
+    loader.classList.add("hidden");
+  }, 4200);
+
+  setTimeout(() => {
+    loader.style.display = "none";
+  }, 4800);
+});
+
+window.addEventListener("load", () => {
+  const loader = document.getElementById("loader");
+  const loaderCube = document.getElementById("loaderCube");
+  const loaderWord = document.getElementById("loaderWord");
+  const loaderProgressFill = document.getElementById("loaderProgressFill");
+
+  let progress = 0;
+
+  const progressInterval = setInterval(() => {
+    progress += 2;
+    if (progress > 100) progress = 100;
+    loaderProgressFill.style.width = progress + "%";
+
+    if (progress === 100) {
+      clearInterval(progressInterval);
+    }
+  }, 60);
+
+  setTimeout(() => {
+    loaderCube.classList.add("break-apart");
+    loaderWord.classList.add("drop");
+  }, 4500);
+
+  setTimeout(() => {
+    loaderProgressFill.style.width = "100%";
+  }, 4800);
+
+  setTimeout(() => {
+    loader.classList.add("hidden");
+  }, 5850);
+
+  setTimeout(() => {
+    loader.style.display = "none";
+  }, 6800);
 });
